@@ -1,0 +1,92 @@
+env_name: Acrobot-v1
+seed_id: 0
+
+# These will be used in the inner loop sequentially
+inner_loop_algorithm: ["ppo", "sac", "dqn"]
+
+# Meta-optimizer
+strategy_name: SNES
+strategy_params:
+  popsize: 128
+  sigma_init: 0.05
+  temperature: 0
+
+# Arguments for synthetic environment. max_steps_in_episode = 1 turns it into a
+# contextual bandit
+synth_env_kwargs:
+  max_steps_in_episode: 1
+  network_kwargs:
+    latent_dist: normal
+    features: [32]
+
+# Other outer loop parameters
+meta_config:
+  num_generations: 20
+  num_rollouts: 1
+  mean_eval_freq: 1
+  num_rollouts_mean: 32
+
+# Arguments for the evaluation in the evaluation environment
+eval_config:
+  num_eval_envs: 50
+  init_value: 500
+  end_value: 500
+  transition_begin: 0
+  transition_steps: 1
+
+# Inner loop hyperparameters, sampled uniformly from lists
+inner_config:
+  ppo:
+    env: Acrobot-v1
+    agent_kwargs:
+      activation: tanh
+    num_envs: 5
+    num_steps: 100
+    num_epochs: 10
+    num_minibatches: 10
+    total_timesteps: 10_000
+    eval_freq: 10_000
+    learning_rate: [0.01, 0.005, 0.001, 0.0005, 0.0001]
+    max_grad_norm: 10
+    gamma: [1.0, 0.99, 0.95, 0.9, 0.8]
+    gae_lambda: [1.0, 0.95, 0.9, 0.8, 0.5]
+    clip_eps: [0.1, 0.2, 0.3, 0.4, 0.5]
+    ent_coef: [0.0, 0.01, 0.05, 0.1, 0.5]
+    vf_coef: [0.0, 0.5, 1.0, 1.5, 2.0]
+
+  sac:
+    env: Acrobot-v1
+    agent_kwargs:
+      activation: tanh
+    num_envs: 5
+    buffer_size: 2000
+    fill_buffer: 1000
+    batch_size: 256
+    gradient_steps: 2
+    total_timesteps: 10_000
+    eval_freq: 10_000
+    learning_rate: [0.01, 0.005, 0.001, 0.0005, 0.0001]
+    gamma: [1.0, 0.99, 0.95, 0.9, 0.8]
+    tau: [0.99, 0.95, 0.9, 0.7, 0.8]
+    target_entropy_ratio: [0.1, 0.3, 0.5, 0.7, 0.9]
+
+  dqn:
+    env: Acrobot-v1
+    agent: DuelingQNetwork
+    agent_kwargs:
+      activation: tanh
+    num_envs: 10
+    buffer_size: 2000
+    fill_buffer: 1000
+    batch_size: 100
+    gradient_steps: 1
+    total_timesteps: 10_000
+    eval_freq: 10_000
+    target_update_freq: 50
+    learning_rate: [0.01, 0.005, 0.001, 0.0005, 0.0001]
+    max_grad_norm: 10
+    eps_start: 1
+    eps_end: [0.01, 0.05, 0.1, 0.2]
+    exploration_fraction: 0.5
+    gamma: [1.0, 0.99, 0.95, 0.9, 0.8]
+    ddqn: [true, false]
