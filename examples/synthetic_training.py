@@ -1,8 +1,8 @@
 from time import time
 
 import jax
-from purerl.algos import get_agent
-from purerl.evaluate import make_evaluate
+from fastrl.algos import get_agent
+from fastrl.evaluate import make_evaluate
 
 # fmt: off
 # Importing synthetic_gymnax overwrites gymnax.make, which allows us to make

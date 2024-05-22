@@ -7,12 +7,12 @@ import jax
 import jax.numpy as jnp
 import numpy as np
 from brax.envs import _envs as brax_envs
+from fastrl.brax2gymnax import Brax2GymnaxEnv
 from flax import struct
 from flax.core.frozen_dict import FrozenDict
 from gymnax import registered_envs as gymnax_envs
 from gymnax.environments import spaces
 from gymnax.environments.environment import Environment
-from purerl.brax2gymnax import Brax2GymnaxEnv
 
 from synthetic_gymnax.synthenv_network import SynthEnvMLP
 

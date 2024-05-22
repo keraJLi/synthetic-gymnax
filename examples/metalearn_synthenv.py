@@ -14,8 +14,7 @@ import yaml
 from dotmap import DotMap
 from evosax import Strategies
 from evosax.core.reshape import ravel_pytree
-from jax import numpy as jnp
-from purerl.algos import (
+from fastrl.algos import (
     DDPG,
     DQN,
     PPO,
@@ -27,7 +26,8 @@ from purerl.algos import (
     SACConfig,
     TD3Config,
 )
-from purerl.evaluate import make_evaluate
+from fastrl.evaluate import make_evaluate
+from jax import numpy as jnp
 
 from synthetic_gymnax import SynthEnv
 
@@ -55,7 +55,7 @@ def log(
 
 def get_agent(algo: str) -> Tuple[type, type]:
     """
-    Returns the algorithm's class and config class, instead of pureRL's get_agent,
+    Returns the algorithm's class and config class, instead of fastrl's get_agent,
     which returns train_fn and the config class.
     """
     return {
