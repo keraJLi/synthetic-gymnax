@@ -20,7 +20,7 @@ env, params = gymnax.make("CartPole-v1")
 ```python
 import gymnax, synthetic_gymnax
 env, params = gymnax.make("Synthetic-CartPole-v1")
-                         # ^^^^^^^^^^ <- HERE
+# add 'synthetic' to env:  ^^^^^^^^^^
 ...  # your training code
 ```
 </td>
@@ -32,7 +32,7 @@ env, params = gymnax.make("Synthetic-CartPole-v1")
 The synthetic environments are meta-learned to train agents within 10k time steps. 
 This can be much faster than training in the real environment, even when using tuned hyperparameters!
 
-![](img/training_scb_real_accumulated.png)
+![](img/training_scb_real_accumulated_with_background.png)
 - 🟩 **Real environment** training, using tuned hyperparameters (IQM of 5 training runs)
 - 🟦 **Synthetic environment** training, using any reasonable hyperparameters (IQM performance of 20 training runs with random HP configurations)
 
@@ -41,9 +41,8 @@ This can be much faster than training in the real environment, even when using t
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th colspan=5>IQM return after 10k synthetic 🦶</td>
-    </tr>
+      <th colspan=6>Classic control: 10k synthetic 🦶</th>
+    </th>
     <tr>
       <th>Environment</th>
       <th>PPO</th>
@@ -94,45 +93,86 @@ This can be much faster than training in the real environment, even when using t
       <td>-164.3</td>
       <td>-168.5</td>
     </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
     <tr>
-      <td>Synthetic-halfcheetah</td>
+      <th colspan=9>Brax: 10k synthetic, 5m real 🦶</th>
+    </th>
+    <tr>
+      <th rowspan=2>Environment</th>
+      <th colspan=2>PPO</th>
+      <th colspan=2>SAC</th>
+      <th colspan=2>DDPG</th>
+      <th colspan=2>TD3</th>
+    </tr>
+    <tr>
+      <th>Synthetic</th>
+      <th>Real</th>
+      <th>Synthetic</th>
+      <th>Real</th>
+      <th>Synthetic</th>
+      <th>Real</th>
+      <th>Synthetic</th>
+      <th>Real</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>halfcheetah</td>
       <td>1657.4</td>
+      <td><!-- b -->3487.1<!-- /b --></td>
       <td>5810.4</td>
-      <td>-</td>
-      <td>6162.4</td>
+      <td><!-- b -->7735.5<!-- /b --></td>
+      <td><!-- b -->6162.4<!-- /b --></td>
+      <td>3263.3</td>
       <td>6555.8</td>
+      <td><!-- b -->13213.5<!-- /b --></td>
     </tr>
     <tr>
-      <td>Synthetic-hopper</td>
+      <td>hopper</td>
       <td>853.5</td>
+      <td><!-- b -->2521.9<!-- /b --></td>
       <td>2738.8</td>
-      <td>-</td>
-      <td>3012.4</td>
+      <td><!-- b -->3119.4<!-- /b --></td>
+      <td><!-- b -->3012.4<!-- /b --></td>
+      <td>1536.0</td>
       <td>2985.3</td>
+      <td><!-- b -->3325.8<!-- /b --></td>
     </tr>
     <tr>
-      <td>Synthetic-humanoidstandup</td>
+      <td>humanoidstandup</td>
       <td>13356.1</td>
+      <td><!-- b -->17243.5<!-- /b --></td>
       <td>21105.2</td>
-      <td>-</td>
+      <td><!-- b -->23808.1<!-- /b --></td>
       <td>21039.0</td>
+      <td><!-- b -->24944.8<!-- /b --></td>
       <td>20372.0</td>
+      <td><!-- b -->28376.2<!-- /b --></td>
     </tr>
     <tr>
-      <td>Synthetic-swimmer</td>
+      <td>swimmer</td>
+      <td><!-- b -->348.5<!-- /b --></td>
+      <td>83.6</td>
+      <td><!-- b -->361.6<!-- /b --></td>
+      <td>124.8</td>
+      <td><!-- b -->365.1<!-- /b --></td>
       <td>348.5</td>
-      <td>361.6</td>
-      <td>-</td>
-      <td>365.1</td>
-      <td>365.4</td>
+      <td><!-- b -->365.4<!-- /b --></td>
+      <td>232.2</td>
     </tr>
     <tr>
-      <td>Synthetic-walker2d</td>
+      <td>walker2d</td>
       <td>858.3</td>
+      <td><!-- b -->2039.6<!-- /b --></td>
       <td>1323.1</td>
-      <td>-</td>
-      <td>1304.3</td>
+      <td><!-- b -->4140.1<!-- /b --></td>
+      <td><!-- b -->1304.3<!-- /b --></td>
+      <td>698.3</td>
       <td>1321.8</td>
+      <td><!-- b -->4605.8<!-- /b --></td>
     </tr>
   </tbody>
 </table>
@@ -152,6 +192,6 @@ Please clone the repository to get them.
 If you use the provided synthetic environments in your work, please cite us as
 ```
 @article{
-    ...
+  ...
 }
 ```
