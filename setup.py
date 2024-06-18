@@ -8,4 +8,12 @@ setup(
     description="Synthetic gymnax environments",
     packages=find_packages(),
     include_package_data=True,
+    install_requires=[
+        "chex",
+        "gymnax",
+        "brax",
+        "flax",
+        "distrax",
+        "rejax",
+    ],
 )
