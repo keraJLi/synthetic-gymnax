@@ -12,7 +12,7 @@ from flax.core.frozen_dict import FrozenDict
 from gymnax import registered_envs as gymnax_envs
 from gymnax.environments import spaces
 from gymnax.environments.environment import Environment
-from purerl.brax2gymnax import Brax2GymnaxEnv
+from rejax.brax2gymnax import Brax2GymnaxEnv
 
 from synthetic_gymnax.synthenv_network import SynthEnvMLP
 

@@ -177,7 +177,6 @@ meta_config:
   num_generations: 2000
   num_rollouts: 1
   num_rollouts_mean: 64
-  strategy_name: SNES
 strategy_name: SNES
 strategy_params:
   popsize: 128

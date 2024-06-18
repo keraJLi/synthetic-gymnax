@@ -1,9 +1,9 @@
-env_name: halfcheetah
+env_name: brax/hopper
 seed_id: 0
 eval_config:
-  end_value: 1000
-  init_value: 100
-  num_eval_envs: 50
+  end_length: 1000
+  init_length: 100
+  num_eval_envs: 16
   transition_begin: 200
   transition_steps: 1600
 inner_config:
@@ -12,7 +12,7 @@ inner_config:
       activation: tanh
     batch_size: 100
     buffer_size: 5000
-    env: brax/halfcheetah
+    env: brax/hopper
     eval_freq: 10000
     exploration_noise:
       - 0.1
@@ -58,7 +58,7 @@ inner_config:
       - 0.05
       - 0.1
       - 0.5
-    env: brax/halfcheetah
+    env: brax/hopper
     eval_freq: 10000
     gae_lambda:
       - 1.0
@@ -94,7 +94,7 @@ inner_config:
       activation: tanh
     batch_size: 250
     buffer_size: 5000
-    env: brax/halfcheetah
+    env: brax/hopper
     eval_freq: 10000
     fill_buffer: 1000
     gamma:
@@ -126,7 +126,7 @@ inner_config:
     buffer_size: 5000
     critic_kwargs:
       activation: tanh
-    env: brax/halfcheetah
+    env: brax/hopper
     eval_freq: 10000
     exploration_noise:
       - 0.1
@@ -181,7 +181,7 @@ meta_config:
   num_rollouts_mean: 64
 strategy_name: SNES
 strategy_params:
-  popsize: 128
+  popsize: 256
   sigma_init: 0.05
   temperature: 0
 synth_env_kwargs:

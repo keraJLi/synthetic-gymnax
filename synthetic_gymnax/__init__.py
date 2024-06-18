@@ -7,15 +7,15 @@ from gymnax import make as gymnax_make
 
 from synthetic_gymnax.synthetic_environment import SynthEnv, SynthEnvParams
 
-__all__ = ["SynthEnv", "synthetic_envs"]
+__all__ = ["SynthEnv", "SynthEnvParams", "synthetic_envs"]
 
 CHECKPOINT_FOLDERS = {
     # Classic control
     "Acrobot-v1": "acrobot",
     "CartPole-v1": "cartpole",
-    "ContinuousMountainCar-v0": "continuous_mountaincar",
+    "MountainCarContinuous-v0": "continuous_mountaincar",
     "MountainCar-v0": "mountaincar",
-    "Pendulum-v0": "pendulum",
+    "Pendulum-v1": "pendulum",
     # Brax
     "hopper": "hopper",
     "swimmer": "swimmer",
