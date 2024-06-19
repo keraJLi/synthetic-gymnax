@@ -211,6 +211,7 @@ They are optimized using evolutionary meta-learning, such that they maximize the
 In the paper, we find that 
 1. The synthetic environments don't need to have episodes that exceed a single time steps. Instead, **synthetic contextual bandits** are enough to train good policies.
 2. The synthetic contextual bandits generalize to unseen network architectures and optimization schemes. While gradient-based optimization was used during meta-learning, evolutionary methods work in evaluation, too.
+3. We can speed up downstream meta-learning applications, such as Discovered Policy Optimization. For more info, have a look at the paper!
 
 ![Conceptual algorithm overview](img/conceptual.png)
 
