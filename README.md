@@ -189,7 +189,7 @@ Please clone the repository to get them.
 
 
 ## ✍ Citing and more information
-If you use the provided synthetic environments in your work, please our [paper](https://arxiv.org/abs/2406.12589) as
+If you use the provided synthetic environments in your work, please cite our [paper](https://arxiv.org/abs/2406.12589) as
 ```
 @article{liesen2024discovering,
   title={Discovering Minimal Reinforcement Learning Environments}, 
