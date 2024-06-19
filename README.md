@@ -1,4 +1,29 @@
-# Synthetic Gymnax
+<div style="display: flex; align-items: center">
+<div style="flex-shrink: 0.5; min-width: 30px; max-width: 150px; aspect-ratio: 1; margin-right: 15px">
+  <img src="img/logo.png" width="150" height="150" align="left"></img>
+</div>
+<div>
+  <h1>
+    🌐 Synthetic Gymnax
+    <br>
+    <span style="font-size: large">Drop-in environment replacements that make your RL algorithm train faster.</span>
+    <br>
+    <a href="https://github.com/psf/black">
+      <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
+    </a>
+    <a href="https://opensource.org/licenses/Apache-2.0">
+      <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0">
+    </a>
+    <a href="https://badge.fury.io/py/synthetic-gymnax">
+      <img src="https://badge.fury.io/py/synthetic-gymnax.svg" alt="PyPI version">
+    </a>
+  </h1>
+  </div>
+</div>
+
+Synthetic gymnax contains Gymnax environments that train agents within 10k time steps.
+
+
 ## 💡 Make a one-line change ...
 <table>
 <tr>
