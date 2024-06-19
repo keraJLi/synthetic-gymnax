@@ -191,7 +191,11 @@ Please clone the repository to get them.
 ## ✍ Citing and more information
 If you use the provided synthetic environments in your work, please cite us as
 ```
-@article{
-  ...
+@article{liesen2024discovering,
+      title={Discovering Minimal Reinforcement Learning Environments}, 
+      author={Jarek Liesen and Chris Lu and Andrei Lupu and Jakob N. Foerster and Henning Sprekeler and Robert T. Lange},
+      year={2024},
+      eprint={2406.12589},
+      archivePrefix={arXiv},
 }
 ```
