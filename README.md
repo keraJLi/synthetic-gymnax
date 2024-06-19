@@ -24,7 +24,7 @@
 Synthetic gymnax contains Gymnax environments that train agents within 10k time steps.
 
 
-## 💡 Make a one-line change ...
+## 🔄 Make a one-line change ...
 <table>
 <tr>
 <th>Simply replace</th>
@@ -61,6 +61,9 @@ This can be much faster than training in the real environment, even when using t
 - 🟩 **Real environment** training, using tuned hyperparameters (IQM of 5 training runs)
 - 🟦 **Synthetic environment** training, using any reasonable hyperparameters (IQM performance of 20 training runs with random HP configurations)
 
+## 🏗 Installing synthetic-gymnax
+1. Install via pip: `pip install synthetic-gymnax`
+2. Install from source: `pip install git+https://github.com/keraJLi/synthetic-gymnax`
 
 ## 🏅 Performance of agents after training for 10k synthetic steps 
 <table>
@@ -202,6 +205,14 @@ This can be much faster than training in the real environment, even when using t
   </tbody>
 </table>
 
+## 💡 Background
+The environments in this package are the result of our paper, [Discovering Minimal Reinforcement Learning Environments](https://arxiv.org/abs/2406.12589) (citation below).
+They are optimized using evolutionary meta-learning, such that they maximize the performance of an agent after training in the synthetic environment.
+In the paper, we find that 
+1. The synthetic environments don't need to have episodes that exceed a single time steps. Instead, **synthetic contextual bandits** are enough to train good policies.
+2. The synthetic contextual bandits generalize to unseen network architectures and optimization schemes. While gradient-based optimization was used during meta-learning, evolutionary methods work in evaluation, too.
+
+![Conceptual algorithm overview](img/conceptual.png)
 
 ## 💫Replicating our results
 We provide the configurations used in meta-training the checkpoints for synthetic environments in `synthetic_gymnax/checkpoints/*environment*/config.yaml`. They can be used with the meta-learning script by calling e.g.
